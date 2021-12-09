@@ -7,10 +7,25 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    @State private var moves = ["Paper", "Rock", "Scissors"].shuffled()
+    @State private var moveChoice = Int.random(in: 0...2)
+    
+    @State private var shouldWin = Bool.random()
+    
+    @State private var userScore = 0
+    
+    
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("\(userScore)")
+            Text("\(moves[moveChoice])")
+            Text(shouldWin ? "win" : "lose")
+        }
     }
 }
 
